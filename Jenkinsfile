@@ -3,7 +3,7 @@
 //
 // One-time setup before running:
 //   1. Jenkins > Manage Jenkins > Credentials > add "Username with password"
-//      with ID "dockerhub-creds" (your DockerHub username + access token)
+//      with ID "DOCKERHUB_CREDENTIALS" (your DockerHub username + access token)
 //   2. Update IMAGE_NAME below to <your-dockerhub-username>/ibm-cicd-demo
 //   3. Run `kubectl apply -f k8s/` once manually so the Deployment/Service exist
 //      before this pipeline tries to `kubectl set image` on it
