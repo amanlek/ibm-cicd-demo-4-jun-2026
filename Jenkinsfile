@@ -13,9 +13,9 @@
 pipeline {
     agent any
 
-        parameters {
-        booleanParam(name: 'PUSH_TO_DOCKERHUB', defaultValue: false, description: 'Push image to Docker Hub')
-    }
+    //     parameters {
+    //     booleanParam(name: 'PUSH_TO_DOCKERHUB', defaultValue: false, description: 'Push image to Docker Hub')
+    // }
 
     environment {
         IMAGE_NAME = "vamandeshmukh/ibm-cicd-demo"
@@ -48,9 +48,9 @@ pipeline {
         }
 
         stage('Docker Push') {
-            when {
-                expression { return params.PUSH_TO_DOCKERHUB == true }
-            }
+            // when {
+            //     expression { return params.PUSH_TO_DOCKERHUB == true }
+            // }
             steps {
                 withCredentials([usernamePassword(credentialsId: 'DOCKERHUB_CREDENTIALS', usernameVariable: 'DOCKERHUB_CREDENTIALS_USR', passwordVariable: 'DOCKERHUB_CREDENTIALS_PSW')]) {
                     // bat "echo %DOCKERHUB_CREDENTIALS_PSW% | docker login -u %DOCKERHUB_CREDENTIALS_USR% --password-stdin"
