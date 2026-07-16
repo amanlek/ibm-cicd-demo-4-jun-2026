@@ -14,7 +14,8 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "vamandeshmukh/ibm-cicd-demo"
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds')
+        IMAGE_NAME = "amanlekharajani/ibm-cicd-demo"
         IMAGE_TAG  = "${env.BUILD_NUMBER}"
     }
 
@@ -22,7 +23,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/dyesmuk/ibm-cicd-demo-4-jun-2026.git'
+                git branch: 'main', url: 'https://github.com/amanlek/ibm-cicd-demo-4-jun-2026.git'
             }
         }
 
